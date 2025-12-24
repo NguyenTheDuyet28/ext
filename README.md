@@ -36,3 +36,28 @@ sudo apt-get install build-essential libfuse-dev libsodium-dev libkeyutils-dev z
 # Biên dịch mã nguồn và tạo file ẩn .secure_usb
 gcc -Wall my_fuse.c `pkg-config fuse --cflags --libs` -lsodium -lz -lkeyutils -o .secure_usb
 sudo bash run.sh (mật khẩu là Nhom01)
+
+## Hướng dẫn Thao tác File 
+Sau khi chạy lệnh `sudo bash run.sh` và nhập mật khẩu, hệ thống sẽ mở ra một thư mục tên là **`plain`**.
+
+**BẠN CHỈ LÀM VIỆC TRONG THƯ MỤC `plain`!**
+
+### 1. Tạo và Copy File (Mã hóa)
+* **Thao tác:** Hãy copy, tạo mới, hoặc lưu file (ảnh, tài liệu, video...) vào bên trong thư mục **`plain`**.
+* **Khi copy vào `plain`, hệ thống sẽ tự động nén và mã hóa file đó, sau đó cất giữ an toàn vào thư mục ẩn `.cipher`.
+* **Lưu ý:** file hiện ra bình thường trong `plain`, nhưng thực chất file gốc trên USB đã bị biến đổi thành dữ liệu rác không thể đọc được.
+
+### 2. Mở và Xem File (Giải mã)
+* **Thao tác:** Mở trực tiếp các file đang nằm trong thư mục **`plain`**.
+* **Hệ thống sẽ giải mã để xem được nội dung gốc. Khi đóng file lại, nó vẫn nằm ở trạng thái bảo mật.
+
+### 3. Xóa File
+* **Thao tác:** Chỉ cần xóa file trong thư mục **`plain`**.
+* **File mã hóa tương ứng trong kho lưu trữ `.cipher` cũng sẽ bị xóa vĩnh viễn.
+
+---
+
+###LƯU Ý:
+1.  **KHÔNG** xoá thư mục **`.cipher`** (nếu bạn vô tình tìm thấy nó).
+2.  **KHÔNG** đổi tên, xóa, hay chép file trực tiếp vào **`.cipher`**. Việc này sẽ làm hỏng cấu trúc mã hóa và sẽ **mất dữ liệu vĩnh viễn**.
+3.  Luôn tắt chương trình bằng **`Ctrl + C`** trước khi rút USB để đảm bảo dữ liệu được lưu trọn vẹn.
