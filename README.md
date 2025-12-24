@@ -1,4 +1,4 @@
-# Secure FUSE USB Filesystem 🛡️
+# Secure FUSE USB Filesystem 
 
 Một hệ thống tập tin mã hóa an toàn trên USB, sử dụng FUSE (Filesystem in Userspace) và thư viện Sodium. Dự án này biến một chiếc USB bình thường thành một thiết bị lưu trữ bảo mật với khả năng ẩn giấu dữ liệu, nén và tự động sao lưu.
 
@@ -35,3 +35,4 @@ sudo apt-get install build-essential libfuse-dev libsodium-dev libkeyutils-dev z
 
 # Biên dịch mã nguồn và tạo file ẩn .secure_usb
 gcc -Wall my_fuse.c `pkg-config fuse --cflags --libs` -lsodium -lz -lkeyutils -o .secure_usb
+sudo bash run.sh (mật khẩu là Nhom01)
